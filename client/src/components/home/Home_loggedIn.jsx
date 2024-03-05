@@ -6,6 +6,7 @@ const Home_loggedIn = (props) => {
     const [location, setLocation] = useState('');
     const [currentWeather, setCurrentWeather] = useState(null);
     const [forecast, setForecast] = useState(null);
+    const [city_name, setCity_name] = useState(null);
 
     useEffect(() => {
         // Fetch current location using geolocation API
@@ -27,6 +28,7 @@ const Home_loggedIn = (props) => {
                 const data = await response.json();
                 setCurrentWeather(data.data[0]);
                 setForecast(data.data.slice(1, 6));
+                setCity_name(data.city_name);
             } else {
                 console.error('Failed to fetch weather data');
             }
@@ -47,6 +49,7 @@ const Home_loggedIn = (props) => {
                 const data = await response.json();
                 setCurrentWeather(data.data[0]);
                 setForecast(data.data.slice(1, 6));
+                setCity_name(data.city_name);
             } else {
                 console.error('Failed to fetch weather data');
             }
@@ -68,11 +71,11 @@ const Home_loggedIn = (props) => {
                     onChange={(e) => setLocation(e.target.value)}
                     placeholder="Enter location"
                 />
-                <button onClick={handleLocationChange}>Search</button>
+                <button type="submit" onClick={handleLocationChange}>Search</button>
             </div>
             {currentWeather && (
                 <div>
-                    <h2>Current Weather in {currentWeather.city_name}</h2>
+                    <h2>Current Weather in {city_name}</h2>
                     <p>Temperature: {currentWeather.temp}°C</p>
                     <p>Description: {currentWeather.weather.description}</p>
                 </div>
