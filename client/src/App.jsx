@@ -20,7 +20,6 @@ const App = () => {
 
   return (
     <div>
-      <h1>hello</h1>
       <nav>
         <ul>
           <li><button onClick={() => navigate('home')}>Home</button></li>
@@ -28,7 +27,7 @@ const App = () => {
           <li><button onClick={() => navigate('signup')}>Sign Up</button></li>
         </ul>
       </nav>
-      {route === 'home' && <Home user={user} />}
+      {route === 'home' && <Home isUserLoggedIn={isUserLoggedIn}/>}
       {route === 'login' && <Login onLogin={handleLogin} />}
       {route === 'signup' && <SignUp />}
     </div>
