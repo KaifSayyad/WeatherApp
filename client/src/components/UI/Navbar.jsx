@@ -1,15 +1,19 @@
 import React from 'react';
 import '../../assets/css/Navbar.css';
 
-const Navbar = () => {
+const Navbar = (props) => {
+
+  console.log('isUserLoggedIn', props.isUserLoggedIn);
+
     return (
         <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/signup">Sign Up</a></li>
-            </ul>
-        </nav>
+        <ul>
+          <li><button onClick={() => props.navigate('home')}>Home</button></li>
+          <li><button style={{display: props.isUserLoggedIn ? 'none' : 'block'}} onClick={() => props.navigate('login')}>Login</button></li>
+          <li><button style={{display: props.isUserLoggedIn ? 'block' : 'none'}} onClick={props.handleLogout}>Logout</button></li>
+          <li><button onClick={() => props.navigate('signup')}>Sign Up</button></li>
+        </ul>
+      </nav>
     );
 }
 

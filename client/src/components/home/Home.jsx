@@ -1,9 +1,11 @@
 import React from 'react';
-import '../assets/css/Home.css';
+import '../../assets/css/Home.css';
+import Navbar from '../UI/Navbar';
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div>
+      <Navbar isUserLoggedIn={props.isUserLoggedIn} navigate={props.navigate} handleLogout={props.handleLogout}/>
       <h1>Welcome to My Weather App!</h1>
       <p>
         This website provides current weather information and weather forecasting for cities around the world.
