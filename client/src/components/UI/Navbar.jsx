@@ -11,7 +11,7 @@ const Navbar = (props) => {
           <li><button onClick={() => props.navigate('home')}>Home</button></li>
           <li><button style={{display: props.isUserLoggedIn ? 'none' : 'block'}} onClick={() => props.navigate('login')}>Login</button></li>
           <li><button style={{display: props.isUserLoggedIn ? 'block' : 'none'}} onClick={props.handleLogout}>Logout</button></li>
-          <li><button onClick={() => props.navigate('signup')}>Sign Up</button></li>
+          <li><button style={{display : props.isUserLoggedIn ? 'none' : 'block'}} onClick={() => props.navigate('signup')}>Sign Up</button></li>
         </ul>
       </nav>
     );
