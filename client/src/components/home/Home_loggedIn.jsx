@@ -9,7 +9,6 @@ const Home_loggedIn = (props) => {
     const [city_name, setCity_name] = useState(null);
 
     useEffect(() => {
-        // Fetch current location using geolocation API
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(position => {
                 const { latitude, longitude } = position.coords;
@@ -59,20 +58,23 @@ const Home_loggedIn = (props) => {
     };
 
     return (
-        <div>
+        <div align="center">
             <Navbar isUserLoggedIn={props.isUserLoggedIn} navigate={props.navigate} handleLogout={props.handleLogout}/>
-            { (!currentWeather && !forecast) &&
+            {(!currentWeather && !forecast) &&
                 <div className="spinner"></div>
             }
             <div>
-                <input
-                    type="text"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
-                    placeholder="Enter location"
-                />
-                <button type="submit" onClick={handleLocationChange}>Search</button>
+                <div align="right">
+                    <input
+                        type="text"
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}
+                        placeholder="Enter location"
+                    />
+                    <button type="submit" onClick={handleLocationChange}>Search</button>
+                </div>
             </div>
+
             {currentWeather && (
                 <div>
                     <h2>Current Weather in {city_name}</h2>
@@ -81,9 +83,9 @@ const Home_loggedIn = (props) => {
                 </div>
             )}
             {forecast && (
-                <div>
+                <div style={{ textAlign: 'center' }}>
                     <h2>5-Day Forecast</h2>
-                    <table>
+                    <table className="center-table"> 
                         <thead>
                             <tr>
                                 <th>Date</th>
@@ -110,4 +112,3 @@ const Home_loggedIn = (props) => {
 };
 
 export default Home_loggedIn;
-

@@ -1,4 +1,4 @@
-body {
+.body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
     margin: 0;
@@ -72,32 +72,53 @@ button:hover {
 
 .table-container {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 55%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+.center-table {
+    margin-left: auto;
+    margin-right: auto;
 }
 
-th, td {
-    padding: 8px;
-    border-bottom: 1px solid #ccc;
+
+th,
+td {
+    padding: 10px;
     text-align: left;
-}
-
-th {
-    background-color: #0077cc;
-    color: #fff;
+    border-bottom: 3px solid #ccc;
+    border-left: none; /* Remove left border */
+    border-right: none; /* Remove right border */
 }
 
 th:first-child,
 td:first-child {
-    border-left: 1px solid #ccc;
+    border-left: none; /* Remove left border for first column */
 }
 
 th:last-child,
 td:last-child {
-    border-right: 1px solid #ccc;
+    border-right: none; /* Remove right border for last column */
+}
+
+th {
+    
+    color: #000000;
+}
+
+tr:first-child th {
+    background-color: transparent; /* Remove background color for first row */
+    font-weight: bold; /* Make first row bold */
+}
+
+th:first-child,
+td:first-child {
+    font-weight: bold; /* Make first column bold */
 }
 
 .spinner {
@@ -110,6 +131,10 @@ td:last-child {
     animation: spin 1s linear infinite;
 }
 
+
+
+
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
+
