@@ -64,15 +64,17 @@ const Home_loggedIn = (props) => {
             { (!currentWeather && !forecast) &&
                 <div className="spinner"></div>
             }
-            <div>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '20px' }}>
                 <input
                     type="text"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                     placeholder="Enter location"
+                    style={{ width: '150px', marginRight: '10px' }} // Adjust width here
                 />
                 <button type="submit" onClick={handleLocationChange}>Search</button>
             </div>
+
             {currentWeather && (
                 <div>
                     <h2>Current Weather in {city_name}</h2>
@@ -110,4 +112,3 @@ const Home_loggedIn = (props) => {
 };
 
 export default Home_loggedIn;
-
