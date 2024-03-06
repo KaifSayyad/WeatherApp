@@ -1,4 +1,4 @@
-body {
+.body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
     margin: 0;
@@ -72,13 +72,20 @@ button:hover {
 
 .table-container {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 table {
-    width: 100%;
+    width: 60%;
     border-collapse: separate;
     border-spacing: 0;
 }
+.center-table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 th,
 td {
@@ -100,7 +107,7 @@ td:last-child {
 }
 
 th {
-    background-color: #0077cc;
+    
     color: #000000;
 }
 

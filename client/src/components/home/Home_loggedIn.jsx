@@ -83,9 +83,10 @@ const Home_loggedIn = (props) => {
                 </div>
             )}
             {forecast && (
-                <div>
+                <div style={{ textAlign: 'center' }}>
                     <h2>5-Day Forecast</h2>
-                    <table>
+                    <table class="center-table"> 
+
                         <thead>
                             <tr>
                                 <th>Date</th>
