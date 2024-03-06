@@ -70,7 +70,7 @@ const Home_loggedIn = (props) => {
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                     placeholder="Enter location"
-                    style={{ width: '150px', marginRight: '10px' }} // Adjust width here
+                    style={{ width: '100px', marginRight: '10px' }} 
                 />
                 <button type="submit" onClick={handleLocationChange}>Search</button>
             </div>
