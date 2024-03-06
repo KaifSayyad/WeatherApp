@@ -9,7 +9,6 @@ const Home_loggedIn = (props) => {
     const [city_name, setCity_name] = useState(null);
 
     useEffect(() => {
-        // Fetch current location using geolocation API
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(position => {
                 const { latitude, longitude } = position.coords;
@@ -59,20 +58,21 @@ const Home_loggedIn = (props) => {
     };
 
     return (
-        <div>
+        <div align="center">
             <Navbar isUserLoggedIn={props.isUserLoggedIn} navigate={props.navigate} handleLogout={props.handleLogout}/>
-            { (!currentWeather && !forecast) &&
+            {(!currentWeather && !forecast) &&
                 <div className="spinner"></div>
             }
-            <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '20px' }}>
-                <input
-                    type="text"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
-                    placeholder="Enter location"
-                    style={{ width: '100px', marginRight: '10px' }} 
-                />
-                <button type="submit" onClick={handleLocationChange}>Search</button>
+            <div>
+                <div align="right">
+                    <input
+                        type="text"
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}
+                        placeholder="Enter location"
+                    />
+                    <button type="submit" onClick={handleLocationChange}>Search</button>
+                </div>
             </div>
 
             {currentWeather && (
@@ -85,8 +85,7 @@ const Home_loggedIn = (props) => {
             {forecast && (
                 <div style={{ textAlign: 'center' }}>
                     <h2>5-Day Forecast</h2>
-                    <table class="center-table"> 
-
+                    <table className="center-table"> 
                         <thead>
                             <tr>
                                 <th>Date</th>
