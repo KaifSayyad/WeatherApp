@@ -89,9 +89,9 @@ table {
 
 th,
 td {
-    padding: 8px;
+    padding: 10px;
     text-align: left;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 3px solid #ccc;
     border-left: none; /* Remove left border */
     border-right: none; /* Remove right border */
 }
