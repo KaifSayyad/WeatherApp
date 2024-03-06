@@ -4,7 +4,6 @@ import Login from './components/Auth/Login.jsx';
 import SignUp from './components/Auth/SignUp.jsx';
 import Home from './components/home/Home.jsx';
 import Home_loggedIn from './components/home/Home_loggedIn.jsx';
-import Navbar from './components/UI/Navbar.jsx';
 import './App.css';
 
 const App = () => {
