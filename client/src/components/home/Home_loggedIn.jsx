@@ -8,6 +8,18 @@ const Home_loggedIn = (props) => {
   const [forecast, setForecast] = useState(null);
   const [city_name, setCity_name] = useState(null);
 
+  function convertUnixTimestampToGeneralForm(unixTimestamp) {
+    // Convert Unix timestamp to milliseconds
+    const milliseconds = unixTimestamp * 1000;
+
+    // Create a Date object
+    const date = new Date(milliseconds);
+
+    // Format the Date object into a general time format
+    const options = { hour: "numeric", minute: "numeric", second: "numeric" };
+    return date.toLocaleTimeString("en-IN", options);
+  }
+
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -104,23 +116,28 @@ const Home_loggedIn = (props) => {
       )}
       {forecast && (
         <div style={{ textAlign: "center" }}>
-          <h2>5-Day Forecast</h2>
+          <h1>5-Day Forecast</h1>
+          <br />
           <table className="center-table">
             <thead>
               <tr>
                 <th>Date</th>
-                <th>High Temp</th>
-                <th>Low Temp</th>
+                <th>Min Temp</th>
+                <th>Max Temp</th>
                 <th>Description</th>
+                <th>Sunrise (GMT 5:30+)</th>
+                <th>Sunset (GMT 5:30+)</th>
               </tr>
             </thead>
             <tbody>
               {forecast.map((day) => (
                 <tr key={day.valid_date}>
                   <td>{day.valid_date}</td>
-                  <td>{day.max_temp}°C</td>
                   <td>{day.min_temp}°C</td>
+                  <td>{day.max_temp}°C</td>
                   <td>{day.weather.description}</td>
+                  <td>{convertUnixTimestampToGeneralForm(day.sunrise_ts)}</td>
+                  <td>{convertUnixTimestampToGeneralForm(day.sunset_ts)}</td>
                 </tr>
               ))}
             </tbody>
