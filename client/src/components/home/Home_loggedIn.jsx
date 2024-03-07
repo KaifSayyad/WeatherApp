@@ -87,10 +87,32 @@ const Home_loggedIn = (props) => {
             <div class="box">
               <div class="title">Temperature</div>
               <p>{currentWeather.temp}°C</p>
+              <br />
+              <h3>Max Temp. {currentWeather.max_temp}°C</h3>
+              <h3>Min Temp. {currentWeather.min_temp}°C</h3>
             </div>
             <div class="box">
               <div class="title">Description</div>
-              <p>{currentWeather.weather.description}</p>
+              <p>
+                {currentWeather.weather.description}
+                {currentWeather.humidity}
+                {currentWeather.wind_speed}
+                {currentWeather.wind_deg}
+                {currentWeather.pressure}
+                {currentWeather.uv_index}
+                {currentWeather.visibility}
+                {currentWeather.cloudiness}
+                {currentWeather.sunrise}
+                {currentWeather.sunset}
+                {currentWeather.moonrise}
+                {currentWeather.moonset}
+                {currentWeather.moon_phase}
+                {currentWeather.ozone}
+                {currentWeather.uv_index}
+                {currentWeather.precip_probability}
+                {currentWeather.precip_type}
+                {currentWeather.precip_intensity}
+              </p>
             </div>
           </div>
         </div>
@@ -102,8 +124,8 @@ const Home_loggedIn = (props) => {
             <thead>
               <tr>
                 <th>Date</th>
-                <th>High Temp</th>
-                <th>Low Temp</th>
+                <th>Max Temp</th>
+                <th>Min Temp</th>
                 <th>Description</th>
               </tr>
             </thead>
@@ -111,8 +133,9 @@ const Home_loggedIn = (props) => {
               {forecast.map((day) => (
                 <tr key={day.valid_date}>
                   <td>{day.valid_date}</td>
-                  <td>{day.max_temp}°C</td>
                   <td>{day.min_temp}°C</td>
+                  <td>{day.max_temp}°C</td>
+
                   <td>{day.weather.description}</td>
                 </tr>
               ))}

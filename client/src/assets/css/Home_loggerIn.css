@@ -5,14 +5,14 @@
   padding: 0;
 }
 
-.container {
+/* .container {
   max-width: 800px;
   margin: 50px auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+} */
 
 h1 {
   color: #333;
@@ -88,6 +88,8 @@ button:hover {
   flex-direction: column;
   box-shadow: 0.5px 10px #e6e6e6;
   transition: 0.3s ease-in-out;
+  border-radius: 15px; /* Add curved edges */
+  border: 2px solid #0af0e0;
 }
 
 .container .box .title {
@@ -95,7 +97,6 @@ button:hover {
   font-size: 18px;
   margin-bottom: 10px;
 }
-
 .container .box:nth-child(1) .title {
   background-color: #0af0e0;
   color: white;
@@ -106,6 +107,10 @@ button:hover {
   color: white;
 }
 
+.container .box p {
+  font-weight: bold;
+  font-size: 27px; /* Increase font size by 15% from title */
+}
 
 .table-container {
   margin-top: 20px;
