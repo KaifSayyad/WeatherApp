@@ -43,6 +43,15 @@ button:hover {
   background-color: #005faa;
 }
 
+.outerContainer h2 {
+  font-family: Cursive;
+  font-size: 40px;
+  color: #3c3c3c;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .container {
   max-width: 800px;
   width: auto;
