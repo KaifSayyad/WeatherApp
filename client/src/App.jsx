@@ -17,7 +17,6 @@ const App = () => {
   const handleLogin = (isUserLoggedIn) => {
     setIsUserLoggedIn(isUserLoggedIn);
     navigate("home");
-    console.log(isUserLoggedIn);
   };
 
   const handleLogout = () => {

@@ -28,6 +28,8 @@ const SignUp = () => {
   };
 
   return (
+    <>
+    <Navbar navigate={props.navigate} isUserLoggedIn={props.isUserLoggedIn} handleLogout={props.handleLogout} />
     <form onSubmit={handleSubmit}>
       <label>
         User Name:
@@ -67,6 +69,7 @@ const SignUp = () => {
       <br />
       <button type="submit">Sign Up</button>
     </form>
+    </>
   );
 };
 
