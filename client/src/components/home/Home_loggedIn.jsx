@@ -8,6 +8,18 @@ const Home_loggedIn = (props) => {
   const [forecast, setForecast] = useState(null);
   const [city_name, setCity_name] = useState(null);
 
+  function convertUnixTimestampToGeneralForm(unixTimestamp) {
+    // Convert Unix timestamp to milliseconds
+    const milliseconds = unixTimestamp * 1000;
+
+    // Create a Date object
+    const date = new Date(milliseconds);
+
+    // Format the Date object into a general time format
+    const options = { hour: "numeric", minute: "numeric", second: "numeric" };
+    return date.toLocaleTimeString("en-IN", options);
+  }
+
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -25,6 +37,7 @@ const Home_loggedIn = (props) => {
       const response = await fetch(url);
       if (response.ok) {
         const data = await response.json();
+        console.log(data);
         setCurrentWeather(data.data[0]);
         setForecast(data.data.slice(1, 6));
         setCity_name(data.city_name);
@@ -46,6 +59,7 @@ const Home_loggedIn = (props) => {
       const response = await fetch(url);
       if (response.ok) {
         const data = await response.json();
+        console.log(data);
         setCurrentWeather(data.data[0]);
         setForecast(data.data.slice(1, 6));
         setCity_name(data.city_name);
@@ -86,6 +100,7 @@ const Home_loggedIn = (props) => {
           <div class="container">
             <div class="box">
               <div class="title">Temperature</div>
+              <br></br>
               <p>{currentWeather.temp}°C</p>
               <br />
               <h3>Max Temp. {currentWeather.max_temp}°C</h3>
@@ -93,40 +108,25 @@ const Home_loggedIn = (props) => {
             </div>
             <div class="box">
               <div class="title">Description</div>
-              <p>
-                {currentWeather.weather.description}
-                {currentWeather.humidity}
-                {currentWeather.wind_speed}
-                {currentWeather.wind_deg}
-                {currentWeather.pressure}
-                {currentWeather.uv_index}
-                {currentWeather.visibility}
-                {currentWeather.cloudiness}
-                {currentWeather.sunrise}
-                {currentWeather.sunset}
-                {currentWeather.moonrise}
-                {currentWeather.moonset}
-                {currentWeather.moon_phase}
-                {currentWeather.ozone}
-                {currentWeather.uv_index}
-                {currentWeather.precip_probability}
-                {currentWeather.precip_type}
-                {currentWeather.precip_intensity}
-              </p>
+              <br></br>
+              <h1>{currentWeather.weather.description}</h1>
             </div>
           </div>
         </div>
       )}
       {forecast && (
         <div style={{ textAlign: "center" }}>
-          <h2>5-Day Forecast</h2>
+          <h1>5-Day Forecast</h1>
+          <br />
           <table className="center-table">
             <thead>
               <tr>
                 <th>Date</th>
-                <th>Max Temp</th>
                 <th>Min Temp</th>
+                <th>Max Temp</th>
                 <th>Description</th>
+                <th>Sunrise (GMT 5:30+)</th>
+                <th>Sunset (GMT 5:30+)</th>
               </tr>
             </thead>
             <tbody>
@@ -135,8 +135,9 @@ const Home_loggedIn = (props) => {
                   <td>{day.valid_date}</td>
                   <td>{day.min_temp}°C</td>
                   <td>{day.max_temp}°C</td>
-
                   <td>{day.weather.description}</td>
+                  <td>{convertUnixTimestampToGeneralForm(day.sunrise_ts)}</td>
+                  <td>{convertUnixTimestampToGeneralForm(day.sunset_ts)}</td>
                 </tr>
               ))}
             </tbody>

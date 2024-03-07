@@ -79,32 +79,33 @@ button:hover {
 }
 
 .container .box {
-  width: 300px; /* Adjust width as needed */
-  height: 200px; /* Adjust height as needed */
+  width: 300px;
+  height: 200px;
   background-color: #f0f0f0;
-  margin: 30px 10px;
+  margin: 15px 10px;
   padding: 20px 15px;
   display: flex;
   flex-direction: column;
   box-shadow: 0.5px 10px #e6e6e6;
   transition: 0.3s ease-in-out;
-  border-radius: 15px; /* Add curved edges */
-  border: 2px solid #0af0e0;
+  border-radius: 15px;
+  border: 2px solid #555555;
 }
 
 .container .box .title {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 32px;
   margin-bottom: 10px;
 }
+
 .container .box:nth-child(1) .title {
-  background-color: #0af0e0;
-  color: white;
+  background-color: #f0f0f0;
+  color: #0af0e0; /* Title text color */
 }
 
 .container .box:nth-child(2) .title {
-  background-color: #e8f55b;
-  color: white;
+  background-color: #f0f0f0;
+  color: #e8f55b; /* Title text color */
 }
 
 .container .box p {
@@ -123,6 +124,7 @@ table {
   border-collapse: separate;
   border-spacing: 0;
 }
+
 .center-table {
   margin-left: auto;
   margin-right: auto;
@@ -132,19 +134,19 @@ th,
 td {
   padding: 10px;
   text-align: left;
-  border-bottom: 3px solid #ccc;
-  border-left: none; /* Remove left border */
-  border-right: none; /* Remove right border */
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #ccc; /* Add thin line below each row */
 }
 
 th:first-child,
 td:first-child {
-  border-left: none; /* Remove left border for first column */
+  border-left: none;
 }
 
 th:last-child,
 td:last-child {
-  border-right: none; /* Remove right border for last column */
+  border-right: none;
 }
 
 th {
@@ -152,13 +154,17 @@ th {
 }
 
 tr:first-child th {
-  background-color: transparent; /* Remove background color for first row */
-  font-weight: bold; /* Make first row bold */
+  background-color: transparent;
+  font-weight: bold;
 }
 
 th:first-child,
 td:first-child {
-  font-weight: bold; /* Make first column bold */
+  font-weight: bold;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
 }
 
 .spinner {
