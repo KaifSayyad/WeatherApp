@@ -82,8 +82,17 @@ const Home_loggedIn = (props) => {
       {currentWeather && (
         <div>
           <h2>Current Weather in {city_name}</h2>
-          <p>Temperature: {currentWeather.temp}°C</p>
-          <p>Description: {currentWeather.weather.description}</p>
+
+          <div class="container">
+            <div class="box">
+              <div class="title">Temperature</div>
+              <p>{currentWeather.temp}°C</p>
+            </div>
+            <div class="box">
+              <div class="title">Description</div>
+              <p>{currentWeather.weather.description}</p>
+            </div>
+          </div>
         </div>
       )}
       {forecast && (

@@ -69,6 +69,43 @@ button:hover {
   color: #666;
   margin-bottom: 5px;
 }
+.container {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+.container .box {
+  width: 300px; /* Adjust width as needed */
+  height: 200px; /* Adjust height as needed */
+  background-color: #f0f0f0;
+  margin: 30px 10px;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0.5px 10px #e6e6e6;
+  transition: 0.3s ease-in-out;
+}
+
+.container .box .title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.container .box:nth-child(1) .title {
+  background-color: #0af0e0;
+  color: white;
+}
+
+.container .box:nth-child(2) .title {
+  background-color: #e8f55b;
+  color: white;
+}
+
 
 .table-container {
   margin-top: 20px;
