@@ -102,13 +102,17 @@ const Home_loggedIn = (props) => {
                 <div className="container">
                     <div class="box">
                     <div class="title">Temperature</div>
+                    <br />
                     <p> <span className="tempSpan"> {currentWeather.temp}°C </span></p>
                     <p> <span className="dataSpan">Max Temp  {currentWeather.max_temp}°C </span></p>
                     <p> <span className="dataSpan">Min Temp {currentWeather.min_temp}°C </span></p>
                     </div>
                     <div class="box">
                     <div class="title">Description</div>
+                    <br />
+                    <br />
                     <p> <span className="dataSpan"> {currentWeather.weather.description} </span></p>
+                    <br />
                     <p> <span className="dataSpan">Sunrise at {convertUnixTimestampToGeneralForm(currentWeather.sunrise_ts)} </span></p>
                     <p> <span className="dataSpan">Sunset at {convertUnixTimestampToGeneralForm(currentWeather.sunset_ts)} </span></p>
                     </div>
