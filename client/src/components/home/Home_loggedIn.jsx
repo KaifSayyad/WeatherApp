@@ -72,7 +72,7 @@ const Home_loggedIn = (props) => {
   };
 
   return (
-    <div align="center">
+    <div className="rootDiv" align="center">
       <Navbar
         isUserLoggedIn={props.isUserLoggedIn}
         navigate={props.navigate}
@@ -109,6 +109,8 @@ const Home_loggedIn = (props) => {
                     <div class="box">
                     <div class="title">Description</div>
                     <p> <span className="dataSpan"> {currentWeather.weather.description} </span></p>
+                    <p> <span className="dataSpan">Sunrise at {convertUnixTimestampToGeneralForm(currentWeather.sunrise_ts)} </span></p>
+                    <p> <span className="dataSpan">Sunset at {convertUnixTimestampToGeneralForm(currentWeather.sunset_ts)} </span></p>
                     </div>
                 </div>
           </div>
