@@ -1,12 +1,12 @@
-body{
+body {
   background-color: #e3e6e6;
 }
 
 body::-webkit-scrollbar {
-    display: none;
-  }
+  display: none;
+}
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
