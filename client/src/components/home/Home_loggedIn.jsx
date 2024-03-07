@@ -78,41 +78,41 @@ const Home_loggedIn = (props) => {
         navigate={props.navigate}
         handleLogout={props.handleLogout}
       />
-      {!currentWeather && !forecast && <div className="spinner"></div>}
-      <div>
-        <div align="right">
-          <input
-            type="text"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            placeholder="Enter location"
-          />
-          <button type="submit" onClick={handleLocationChange}>
-            Search
-          </button>
+        <div className="searchBar">
+            <div>
+                <input
+                    type="text"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    placeholder="Enter location"
+                    />
+                <button type="submit" onClick={handleLocationChange}>
+                    Search
+                </button>
+            </div>
+            {!currentWeather && !forecast && <div className="spinner"></div>}
         </div>
-      </div>
 
       {currentWeather && (
-        <div>
-          <h2>Current Weather in {city_name}</h2>
-
-          <div class="container">
-            <div class="box">
-              <div class="title">Temperature</div>
-              <br></br>
-              <p>{currentWeather.temp}°C</p>
-              <br />
-              <h3>Max Temp. {currentWeather.max_temp}°C</h3>
-              <h3>Min Temp. {currentWeather.min_temp}°C</h3>
-            </div>
-            <div class="box">
-              <div class="title">Description</div>
-              <br></br>
-              <h1>{currentWeather.weather.description}</h1>
-            </div>
+        <>
+          <br />
+          <br />
+          <div className="outerContainer">
+                <h2>Current Weather in {city_name}</h2>
+                <div className="container">
+                    <div class="box">
+                    <div class="title">Temperature</div>
+                    <p> <span className="tempSpan"> {currentWeather.temp}°C </span></p>
+                    <p> <span className="dataSpan">Max Temp  {currentWeather.max_temp}°C </span></p>
+                    <p> <span className="dataSpan">Min Temp {currentWeather.min_temp}°C </span></p>
+                    </div>
+                    <div class="box">
+                    <div class="title">Description</div>
+                    <p> <span className="dataSpan"> {currentWeather.weather.description} </span></p>
+                    </div>
+                </div>
           </div>
-        </div>
+        </>
       )}
       {forecast && (
         <div style={{ textAlign: "center" }}>

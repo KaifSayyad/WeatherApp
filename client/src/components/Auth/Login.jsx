@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navbar from '../UI/Navbar';
 
 const Login = (props) => {
   const [email, setEmail] = useState('');
@@ -12,6 +13,8 @@ const Login = (props) => {
   };
 
   return (
+    <>
+    <Navbar navigate={props.navigate} isUserLoggedIn={props.isUserLoggedIn} handleLogout={props.handleLogout} />
     <div className='container'>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
@@ -34,6 +37,7 @@ const Login = (props) => {
         <button type="submit">Login</button>
       </form>
     </div>
+    </>
   );
 };
 
