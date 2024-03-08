@@ -10,7 +10,7 @@ const App = () => {
   const [route, setRoute] = useState("home");
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
-  const navigate = (newRoute) => {
+  function navigate(newRoute){
     setRoute(newRoute);
   };
 
@@ -41,7 +41,7 @@ const App = () => {
         />
       )}
       {route === "login" && <Login onLogin={handleLogin} />}
-      {route === "signup" && <SignUp />}
+      {route === "signup" && <SignUp onLogin={handleLogin} />}
     </div>
   );
 };

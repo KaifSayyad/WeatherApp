@@ -2,13 +2,12 @@ import React from "react";
 import "../../assets/css/Navbar.css";
 
 const Navbar = (props) => {
-  console.log("isUserLoggedIn", props.isUserLoggedIn);
-
   return (
+    <>
     <nav>
       <ul>
         <li>
-          <button onClick={() => props.navigate("home")}>Home</button>
+          <button onClick={() => navigate("home")}>Home</button>
         </li>
         <li>
           <button
@@ -30,13 +29,15 @@ const Navbar = (props) => {
           <button
             style={{ display: props.isUserLoggedIn ? "none" : "block" }}
             disabled={props.isUserLoggedIn}
-            onClick={() => props.navigate("signup")}
+            onClick={() => props.navigate("signup")
+          }
           >
             Sign Up
           </button>
         </li>
       </ul>
     </nav>
+    </>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../UI/Navbar';
+import '../../assets/css/Login.css'
 
 const Login = (props) => {
   const [email, setEmail] = useState('');
@@ -15,11 +16,11 @@ const Login = (props) => {
   return (
     <>
     <Navbar navigate={props.navigate} isUserLoggedIn={props.isUserLoggedIn} handleLogout={props.handleLogout} />
-    <div className='container'>
       <h2>Login</h2>
+    <div className='container'>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Email:</label>
+          <label>Email</label> <span></span>
           <input
             type="email"
             value={email}
@@ -27,7 +28,7 @@ const Login = (props) => {
           />
         </div>
         <div>
-          <label>Password:</label>
+          <label>Password</label> <span></span>
           <input
             type="password"
             value={password}

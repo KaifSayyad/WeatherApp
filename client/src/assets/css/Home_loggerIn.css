@@ -1,13 +1,19 @@
-.body {
+body {
   font-family: Arial, sans-serif;
-  background-color: #fff;
+  background: linear-gradient(to bottom right, #fff7b1, skyblue); /* Background gradient */
   margin: 0;
   padding: 0;
+  min-height: 100vh; /* Ensure the gradient covers the full height of the viewport */
+}
+
+p{
+  margin-bottom: 2px;
 }
 
 h1 {
   color: #333;
   text-align: center;
+  font-family: cursive;
 }
 
 .searchBar{
@@ -27,6 +33,8 @@ input[type="text"] {
   border: 1px solid #ccc;
   border-radius: 5px 0 0 5px;
 }
+
+
 
 button {
   padding: 8px 15px;
@@ -68,11 +76,59 @@ button:hover {
   background-color: #f0f0f0;
   display: flex;
   flex-direction: column;
-  transition: 0.3s ease-in-out;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Added transform transition */
   border: #b5b5b5 1px solid;
   border-radius: 15px;
   margin-top: 10px;
   margin-bottom: 25px;
+}
+
+.container .box:hover {
+  background-color: #f9f9f9; /* Change background color on hover */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow on hover */
+  transform: rotate(-2deg); /* Tilt effect on hover */
+}
+
+.container .box:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+  border-radius: 15px;
+}
+
+.container .box:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  border-radius: 15px;
+}
+
+
+
+#Switch{
+  display: flex;
+  flex-direction: row-reverse;
+  
+}
+
+.form-check-label{
+  margin-right: 50px;
+}
+
+#flexSwitchCheckDefault{
+  height: 20px;
+  width: 30px;
+  margin-right:10px;
 }
 
 .container .box .title {
@@ -87,6 +143,7 @@ button:hover {
   margin-bottom: 10px;
   border-radius: 15px 15px 0px 0px;
 }
+
 
 .tempSpan{
   font-size: 50px;
@@ -115,11 +172,16 @@ table {
   width: 55%;
   border-collapse: separate;
   border-spacing: 0;
+  font-family: cursive;
+  /* border: #3c3c3c 0.1px solid; */
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .center-table {
   margin-left: auto;
   margin-right: auto;
+  width: 90%;
 }
 
 th,
@@ -135,6 +197,8 @@ th:first-child,
 td:first-child {
   border-left: none;
 }
+
+
 
 th:last-child,
 td:last-child {
@@ -157,6 +221,27 @@ td:first-child {
 
 tbody tr:last-child td {
   border-bottom: none;
+}
+
+tr:nth-child(even){
+  background-color: #0077cc;
+}
+
+tr:nth-child(odd){
+  background-color: lightblue;
+}
+
+tr{
+  border: #3c3c3c 0.1px solid;
+  border-radius: 10px;
+}
+
+tr:hover {
+  background-color: #f5f5f5; /* Change background color on hover */
+}
+
+#col-row{
+  background-color: #0077cc;
 }
 
 .spinner {
