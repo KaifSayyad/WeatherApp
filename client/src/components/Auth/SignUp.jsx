@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../UI/Navbar';
 
 const SignUp = (props) => {
+  const navigate = useNavigate();
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -9,26 +10,38 @@ const SignUp = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
     if (password !== confirmPassword) {
-      // Reset password and confirmPassword values
-      alert('Passwords do not match');
-      setPassword('');
-      setConfirmPassword('');
+      alert("Passwords do not match");
       return;
     }
-
-    // Send the form data to the backend
-    const formData = {
-      userName,
-      email,
-      password,
-      confirmPassword,
+    const registerUser = async () => {
+      let response;
+      response = await fetch(`${ServerUrl}/api/user/create`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: userName,
+          email: email,
+          password: password,
+        })
+      });
+      if (!response.ok) {
+        const data = await response.json();
+        const message = data.message || "Something went wrong, please try again later"
+        alert(message);
+        window.location.reload();
+      }
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+        props.onLogin(true);
+        navigate("/");
+      }
     };
-    
-    console.log('Form Data:', formData);
-
-    props.onLogin(true);
+    registerUser();
+    loginUser();
   };
 
   return (
