@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import Navbar from '../UI/Navbar';
+import ServerUrl from '../../../constants';
+import '../../assets/css/SignUp.css';
+import { useNavigate } from "react-router-dom";
+import { loginUser } from '../../../../server/Controllers/userController';
 
 const SignUp = (props) => {
   const navigate = useNavigate();
